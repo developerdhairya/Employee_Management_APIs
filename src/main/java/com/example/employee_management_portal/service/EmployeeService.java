@@ -2,7 +2,6 @@ package com.example.employee_management_portal.service;
 
 import com.example.employee_management_portal.model.Employee;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
