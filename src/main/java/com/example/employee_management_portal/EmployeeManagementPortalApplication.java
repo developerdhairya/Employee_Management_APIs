@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmployeeManagementPortalApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeeManagementPortalApplication.class, args);
-        new EmployeeDataAccess().testDBConnectivity();
         System.out.println("Run Successful");
     }
 }
