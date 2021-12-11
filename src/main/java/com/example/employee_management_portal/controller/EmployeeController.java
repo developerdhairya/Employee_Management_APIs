@@ -1,5 +1,6 @@
 package com.example.employee_management_portal.controller;
 
+import com.example.employee_management_portal.enities.EmployeeEntity;
 import com.example.employee_management_portal.model.Employee;
 import com.example.employee_management_portal.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,18 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @RequestMapping(method = RequestMethod.GET,path = "/getDetails")
-    public ResponseEntity<List<Employee>> getEmployeeList(){
-        return new  ResponseEntity<List<Employee>>(employeeService.getEmployeeList(), HttpStatus.OK);
+    public ResponseEntity<List<EmployeeEntity>> getEmployeeList(){
+        return new  ResponseEntity<List<EmployeeEntity>>(employeeService.getEmployeeList(), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST,path = "/addEmployee")
-    public ResponseEntity<Integer> addEmployee(@RequestBody Employee employee) {
-        return new ResponseEntity<Integer>(employeeService.addEmployee(employee),HttpStatus.OK);
+    public ResponseEntity<Long> addEmployee(@RequestBody EmployeeEntity employee) {
+        return new ResponseEntity<Long>(employeeService.addEmployee(employee),HttpStatus.OK);
     }
-//
-//    @RequestMapping(method = RequestMethod.DELETE,path = "/delete/{id}")
-//    public void deleteStudent(@PathVariable("id") int index) {
-//        employeeService.deleteEmployee(index);
-//    }
+
+    @DeleteMapping(path = "deleteEmployee/{id}")
+    public int deleteEmployeeByID(@PathVariable("id") int id ){
+        return employeeService.deleteEmployeeById(id);
+    }
+
 }

@@ -1,16 +1,32 @@
-package com.example.employee_management_portal.model;
+package com.example.employee_management_portal.enities;
 
+import javax.persistence.*;
 
-public class Employee {
+@Entity
+@Table(name = "employees")
+public class EmployeeEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "salary")
     private int salary;
+
+    @Column(name = "gender")
     private String gender;
+
+    @Column(name = "designation")
     private String designation;
+
+    @Column(name = "age")
     private int age;
 
 
-    public long getID() {
+    public int getID() {
         return ID;
     }
 
@@ -58,3 +74,4 @@ public class Employee {
         this.age = age;
     }
 }
+
